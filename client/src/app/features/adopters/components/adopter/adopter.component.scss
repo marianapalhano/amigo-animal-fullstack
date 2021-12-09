@@ -1,0 +1,46 @@
+.card {
+    border: 1px solid #EEE;
+
+    mat-card-title {
+        font-size: 18px;
+    }
+
+    &:hover {
+        border: 1px solid #FFD740;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        .info {
+            font-weight: 500;
+        }
+    }
+
+    mat-card-actions {
+        text-align: center;
+        button + button {
+            margin-left: 16px;
+        }
+    }
+}
+
+.details {
+    width: 720px;
+    margin: 0 auto;
+    border: 1px solid #EEE;
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            padding: 4px 0;
+
+            .info {
+                font-weight: 500;
+            }
+        }
+    }
+}

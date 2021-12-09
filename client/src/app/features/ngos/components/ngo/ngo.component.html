@@ -1,0 +1,14 @@
+<mat-card class="card" *ngIf="ngo">
+    <mat-card-title-group>
+      <mat-card-title>{{ ngo.name }}</mat-card-title>
+      <mat-card-subtitle>ONG</mat-card-subtitle>
+      <img mat-card-md-image [src]="ngo.imgUrl" />
+    </mat-card-title-group>
+    <mat-card-content>
+        <ul>
+            <li>Cidade: <span class="info">{{ ngo.city }}</span></li>
+            <li>Estado: <span class="info">{{ ngo.state }}</span></li>
+            <li>Descrição: {{ ngo.description }}</li>
+        </ul>      
+    </mat-card-content>
+</mat-card>

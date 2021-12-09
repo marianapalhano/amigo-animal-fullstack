@@ -1,0 +1,20 @@
+mat-toolbar {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+
+    a + a, button {
+        margin: 0 16px;
+    }
+
+    img {
+        height: 48px;
+        margin: 16px 72px 8px 72px;
+    }
+    
+    .active-link {
+        background-color:#FFD740;
+        color: #673AB7;
+    }
+}

@@ -1,0 +1,20 @@
+<main>
+    <h1>Login</h1>
+    <form class="login-form" (submit)="authenticate($event)">
+        <mat-form-field appearance="fill">
+            <mat-label>Digite seu email</mat-label>
+            <input matInput placeholder="maria@exemplo.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Digite sua senha</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+            <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        <button mat-raised-button color="accent" class="login-button" [disabled]="email.invalid || password.invalid">Entrar</button>
+        <mat-error><p class="error" *ngIf="error">E-mail ou senha incorretos, tente novamente.</p></mat-error>
+    </form>
+</main>

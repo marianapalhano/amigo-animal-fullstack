@@ -1,0 +1,126 @@
+<div class="banner">
+    <div class="text">
+        <h1>Faça parte dessa corrente do bem.</h1>
+        <h3>Crie sua conta! É rápido, fácil e gratuito.</h3>
+    </div>
+</div>
+<main>
+    <form [formGroup]="registerForm" class="example-form" (submit)="onSubmit()">
+      <h2>Formulário de cadastro</h2>
+      <h4>Preencha os campos abaixo para se cadastrar na nossa rede.</h4>
+        <mat-form-field class="field-full-width" appearance="fill">
+          <mat-label>Nome e sobrenome</mat-label>
+          <input type="text" matInput formControlName="name" placeholder="Ex. Maria Souza Lima">
+          <mat-error *ngIf="registerForm.controls['name'].errors">
+            Por favor informe nome e sobrenome.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width" appearance="fill">
+          <mat-label>CPF</mat-label>
+          <input type="text" matInput mask="000.000.000-00" formControlName="cpf">
+          <mat-error *ngIf="registerForm.controls['cpf'].invalid">
+            Por favor informe um CPF válido, somente números.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width" appearance="fill">
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="email">
+          <mat-error *ngIf="registerForm.controls['email'].invalid">Digite um email válido.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Senha</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="registerForm.controls['password'].errors">
+            Por favor informe uma senha de no mínimo 6 caracteres.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Data de nascimento</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="birthdate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Telefone</mat-label>
+          <input type="tel" matInput mask="(00) 00000-0000" placeholder="(99) 99999-9999" formControlName="phone">
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error *ngIf="registerForm.controls['phone'].errors">
+            Por favor informe DDD e telefone, somente números.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width" appearance="fill">
+          <mat-label>Endereço</mat-label>
+          <input type="text" matInput formControlName="address" placeholder="Ex. rua Dom Luís, 400">
+          <mat-error *ngIf="registerForm.controls['address'].errors">
+            Por favor informe logradouro e número.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width" appearance="fill">
+          <mat-label>Complemento</mat-label>
+          <input type="text" matInput formControlName="complement" placeholder="Ex. apto 1303">
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width" appearance="fill">
+          <mat-label>Bairro</mat-label>
+          <input type="text" matInput formControlName="neighborhood" placeholder="Ex. Centro">
+          <mat-error *ngIf="registerForm.controls['neighborhood'].errors">
+            Por favor informe bairro.
+          </mat-error>
+        </mat-form-field>
+
+        <table class="field-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="field-full-width" appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input matInput placeholder="Ex. São Paulo" formControlName="city">
+            <mat-error *ngIf="registerForm.controls['city'].errors">
+              Por favor informe sua cidade.
+            </mat-error>
+          </mat-form-field>
+        </td>
+          <td><mat-form-field appearance="fill">
+            <mat-label>Estado</mat-label>
+            <mat-select disableRipple formControlName="state">
+              <mat-option value="AC">AC</mat-option>
+              <mat-option value="AL">AL</mat-option>
+              <mat-option value="AP">AP</mat-option>
+              <mat-option value="AM">AM</mat-option>
+              <mat-option value="BA">BA</mat-option>
+              <mat-option value="CE">CE</mat-option>
+              <mat-option value="ES">ES</mat-option>
+              <mat-option value="GO">GO</mat-option>
+              <mat-option value="MA">MA</mat-option>
+              <mat-option value="MT">MT</mat-option>
+              <mat-option value="ME">MS</mat-option>
+              <mat-option value="MG">MG</mat-option>
+              <mat-option value="PA">PA</mat-option>
+              <mat-option value="PB">PB</mat-option>
+              <mat-option value="PR">PR</mat-option>
+              <mat-option value="PE">PE</mat-option>
+              <mat-option value="PI">PI</mat-option>
+              <mat-option value="RJ">RJ</mat-option>
+              <mat-option value="RN">RN</mat-option>
+              <mat-option value="RS">RS</mat-option>
+              <mat-option value="RO">RO</mat-option>
+              <mat-option value="RR">RR</mat-option>
+              <mat-option value="SC">SC</mat-option>
+              <mat-option value="SP">SP</mat-option>
+              <mat-option value="SE">SE</mat-option>
+              <mat-option value="TO">TO</mat-option>
+              <mat-option value="DF">DF</mat-option>
+              
+            </mat-select>
+          </mat-form-field></td>
+        </tr></table>
+        <button mat-raised-button color="accent" [disabled]="registerForm.invalid" class="form-button">Criar Conta</button>
+      </form>
+</main>

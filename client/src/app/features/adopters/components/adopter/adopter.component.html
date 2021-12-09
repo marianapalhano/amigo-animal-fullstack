@@ -1,0 +1,41 @@
+<div class="card" *ngIf="adopter && card">
+    <mat-card class="example-card">
+        <mat-card-title>{{ adopter.name }}</mat-card-title>
+        <mat-card-subtitle>{{ adopter.email }}</mat-card-subtitle>
+        <mat-card-content>
+          <ul>
+              <li>Data de nascimento: <span class="info">{{ adopter.birthdate | date: 'longDate' }}</span></li>
+              <li>Telefone: <span class="info">{{ adopter.phone | phone }}</span></li>
+              <li>Cidade: <span class="info">{{ adopter.city }}</span></li>
+              <li>Estado: <span class="info">{{ adopter.state }}</span></li>
+          </ul>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="navigateToDetails()">Detalhes</button>
+          <button mat-raised-button color="warn" (click)="removeAdopter()"><mat-icon>delete</mat-icon>Apagar</button>
+        </mat-card-actions>
+      </mat-card>
+</div>
+
+<div class="details" *ngIf="adopter && !card">
+    <mat-card class="example-card">
+        <mat-card-title>{{ adopter.name }}</mat-card-title>
+        <mat-card-subtitle>{{ adopter.email }}</mat-card-subtitle>
+        <mat-card-content>
+          <ul>
+              <li>Data de nascimento: <span class="info">{{ adopter.birthdate | date: 'longDate' }}</span></li>
+              <li>CPF: <span class="info">{{ adopter.cpf | cpf }}</span></li>
+              <li>Telefone: <span class="info">{{ adopter.phone | phone }}</span></li>
+              <li>Cidade: <span class="info">{{ adopter.city }}</span></li>
+              <li>Estado: <span class="info">{{ adopter.state }}</span></li>
+              <li>Endereço: <span class="info">{{ adopter.address }}</span></li>
+              <li *ngIf="adopter.complement">Complemento: <span class="info">{{ adopter.complement }}</span></li>
+              <li>Bairro: <span class="info">{{ adopter.neighborhood }}</span></li>
+              <li>
+                <h2>Pets adotados:</h2>
+                <app-pet-list [pets]="myPets"></app-pet-list>
+              </li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+</div>

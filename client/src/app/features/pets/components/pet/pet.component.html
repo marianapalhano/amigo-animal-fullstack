@@ -1,0 +1,45 @@
+<mat-card class="pet-card" *ngIf="pet && card">
+    <mat-card-header>
+      <mat-card-title>{{ pet.name }}</mat-card-title>
+      <mat-card-subtitle>{{ pet.breed }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="pet.imgUrl" />
+    <mat-card-content>
+      <ul>
+        <li><span class="info">{{ pet.gender }}</span></li>
+        <li>Porte: <span class="info">{{ pet.size }}</span></li>
+        <li>Local: <span class="info">{{ pet.city }}</span></li>
+        <li>Taxa de adoção: <span class="info">{{ pet.adoptionFee | currency: 'BRL' }}</span></li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [routerLink]="['/pet-details', pet.id]">Detalhes</button>
+      <button mat-raised-button color="accent" (click)="makeAdoption()" *ngIf="!adoptersPet">Adotar pet</button>
+    </mat-card-actions>
+</mat-card>
+
+<mat-card class="pet-details" *ngIf="pet && !card">
+  <img mat-card-image [src]="pet.imgUrl" />
+  <div>
+    <mat-card-header>
+      <mat-card-title>{{ pet.name }}</mat-card-title>
+      <mat-card-subtitle>{{ pet.breed }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li><span class="info">{{ pet.gender }}</span></li>
+        <li>Porte: <span class="info">{{ pet.size }}</span></li>
+        <li>Idade aproximada: <span class="info">{{ pet.age }}</span></li>
+        <li>Local: <span class="info">{{ pet.city }}</span></li>
+        <li>Microchip: <span class="info">{{ pet.microchip }}</span></li>
+        <li>ONG: <span class="info">{{ ngoName }}</span></li>
+        <li>Personalidade: <span class="info">{{ pet.personality }}</span></li>
+        <li>Taxa de adoção: <span class="info">{{ pet.adoptionFee | currency: 'BRL' }}</span></li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" (click)="makeAdoption()" *ngIf="pet.isAdopted === false">Adotar pet</button>
+    </mat-card-actions>
+  </div>
+  </mat-card>
+ 

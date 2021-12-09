@@ -1,0 +1,24 @@
+<main>
+    <mat-card>Filtre por
+        <mat-form-field appearance="fill">
+            <mat-label>Estado</mat-label>
+            <mat-select [(ngModel)]="selectedState" name="selected-state">
+              <mat-option></mat-option> 
+              <mat-option value="BA">BA</mat-option>
+              <mat-option value="CE">CE</mat-option>
+              <mat-option value="PE">PE</mat-option>
+            </mat-select>            
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Espécie</mat-label>
+            <mat-select [(ngModel)]="selectedSpecies" name="selected-species">
+              <mat-option></mat-option> 
+              <mat-option value="Cachorro">Cachorro</mat-option>
+              <mat-option value="Gato">Gato</mat-option>
+            </mat-select>            
+        </mat-form-field>
+          <button mat-flat-button color="primary" (click)="filterPets()">Filtrar</button>
+    </mat-card>
+    <mat-error><p *ngIf="filteredPets.length === 0">Sua busca não retornou nenhum resultado.</p></mat-error>
+    <app-pet-list [pets]="filteredPets"></app-pet-list>
+</main>

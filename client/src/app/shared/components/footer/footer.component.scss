@@ -1,0 +1,42 @@
+footer {
+    width: 100%;
+    background-color: #EEE;
+    // position: absolute;
+    // bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+        margin: 40px 72px;
+
+        img {
+            height: 56px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                padding: 8px 0;
+
+                a {
+                    text-decoration: none;
+                    color: #673AB7;
+                }
+            }
+        }
+        p {
+            mat-icon {
+                font-size: 16px;
+                color: crimson;
+            }
+        }
+    }
+    .wide-column {
+        width: 40%;
+    }
+    .narrow-colum {
+        width: 20%;
+    }
+}

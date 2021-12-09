@@ -1,0 +1,27 @@
+<main>
+    <h2>Listagem de adotantes</h2>
+    <mat-card>Busca
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Digite o que procura</mat-label>
+            <input matInput placeholder="Ex. Maria" (keyup)="searchAdopter($event)">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Buscar por</mat-label>
+            <mat-select [(ngModel)]="searchBy" name="search-by">
+            <mat-option></mat-option> 
+            <mat-option value="name">Nome</mat-option>
+            <mat-option value="id">Código</mat-option>
+            </mat-select>            
+        </mat-form-field>
+    </mat-card>
+    <ul>
+        <li *ngFor="let adopter of filteredAdopters">
+            <app-adopter [adopter]="adopter" [card]="true"></app-adopter>
+        </li>
+        <mat-error><p *ngIf="filteredAdopters?.length === 0">Sua busca não retornou nenhum resultado.</p></mat-error>        
+    </ul>
+</main>
+
+
+
+

@@ -1,0 +1,58 @@
+.pet-card {
+    width: 208px;
+    margin: 24px 0;
+    border: 1px solid #EEE;
+
+    mat-card-actions {
+        text-align: center;
+        button + button {
+            margin-left: 16px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .info {
+        font-weight: 500;
+    }
+
+    &:hover {
+        border: 1px solid #FFD740;
+    }
+}
+
+.pet-details {
+    width: 640px;
+    margin: 40px auto;
+    border: 1px solid #EEE;
+    display: flex;
+
+    img {
+        width: 320px;
+        &.mat-card-image {
+            padding: 0;
+            margin: 0;
+            border-radius: 4px;
+        }
+    }
+
+    mat-card-actions {
+        text-align: center;
+
+        button + button {
+            margin-left: 16px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 16px;
+    }
+
+    .info {
+        font-weight: 500;
+    }
+}

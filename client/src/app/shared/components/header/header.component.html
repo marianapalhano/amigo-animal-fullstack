@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <a [routerLink]="['/home']"><img src="../../../../assets/img/logo.png" alt="Amigo Animal"></a>
+    <a mat-button [routerLink]="['/pets']" routerLinkActive="active-link">Quero adotar</a>
+    <a mat-button [routerLink]="['/ngos']" routerLinkActive="active-link">ONGS e Protetores</a>
+    <a mat-button [routerLink]="['/howto-help']" routerLinkActive="active-link">Como ajudar</a>
+    <a mat-button [routerLink]="['/register']" *ngIf="!isUserLoggedIn" routerLinkActive="active-link">Cadastro</a>
+    <a mat-button [routerLink]="['/login']" *ngIf="!isUserLoggedIn" routerLinkActive="active-link">Login</a>
+    <a mat-button [routerLink]="['/adopters']" *ngIf="isUserLoggedIn" routerLinkActive="active-link">Adotantes</a>
+    <a mat-button [routerLink]="['/adopter-details', adopter?.id]" *ngIf="isUserLoggedIn" routerLinkActive="active-link">Perfil</a>
+    <a mat-button (click)="exit()" *ngIf="isUserLoggedIn">Sair</a> 
+</mat-toolbar>
