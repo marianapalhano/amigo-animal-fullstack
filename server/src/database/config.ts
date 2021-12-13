@@ -5,11 +5,11 @@ import { PetEntity } from "../entities/pets.entity";
 
 export const connection = createConnection({
     type: "postgres",
-    host: "ec2-52-201-72-91.compute-1.amazonaws.com",
+    host: "",
     port: 5432,
-    username: "vuudbwysozmuzj",
+    username: "",
     password: "",
-    database: "d2cm98n34b3lgo",
+    database: "",
     logging: true,
     ssl: {
         rejectUnauthorized: false
